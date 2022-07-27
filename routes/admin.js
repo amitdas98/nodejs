@@ -15,5 +15,5 @@ router.post('/user',(req ,res ,next )=>{
     
     res.redirect('/');
 });
-
+//just chechking git 
 module.exports = router;
