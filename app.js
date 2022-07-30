@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
+app.set('view engine','pug');
+app.set('views','views');
+
 
 const admindata = require('./routes/admin');
 const user = require('./routes/user');

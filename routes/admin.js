@@ -9,10 +9,11 @@ router.get('/user',(req , res, next)=>{
     res.sendFile(path.join(rootDir,'views','admin.html'))
 });
 
-router.post('/user',(req ,res ,next )=>{
+router.post('/users',(req ,res ,next )=>{
     
     console.log(req.body);
-    usernames.push(req.body);
+    usernames.push({username: req.body.username});
+    console.log(usernames);
     res.redirect('/admin/user');
 });
 
