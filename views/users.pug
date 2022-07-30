@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{docTitle}
+        link(rel="stylesheet", href="/css/style2.css")
+
+    body 
+        header.main-header
+            nav.main-header_nav
+                ul.main-header_list
+                    li.main-header_ItemList
+                        a.active(href="/") USER ADD
+                    li.main-header_ItemList
+                        a(href="/users") USER LIST
+        
+        main 
+            .grid
+                each users in usrsnms
+                     article.card.user-names
+                        header.card__header
+                            h1 USERNAME: #{users.username}
+                        div.card__content
+                            h2.user_namefirst First name
+                            p.user__description user desctription
+                        div.card__actions
+                            button.btn okay!!
+           
+                        
