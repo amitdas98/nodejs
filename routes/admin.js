@@ -3,17 +3,19 @@ const router = express.Router();
 const path = require('path');
 const rootDir = require('../util/path');
 
+const usernames = [];
 
-router.get('/users',(req , res, next)=>{ 
+router.get('/user',(req , res, next)=>{ 
     res.sendFile(path.join(rootDir,'views','admin.html'))
 });
-router.use('/',(req,res,next)=>{
-    res.send(`<h1>Admin Page is Not availble</h1>`)
-});
+
 router.post('/user',(req ,res ,next )=>{
-    console.log(req.body);
     
-    res.redirect('/');
+    console.log(req.body);
+    usernames.push(req.body);
+    res.redirect('/admin/user');
 });
+
 //just chechking git 
-module.exports = router;
+exports.routes = router;
+exports.usernames = usernames;

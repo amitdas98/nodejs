@@ -18,9 +18,14 @@
     </header>
     <main>
         <form class="userform" action="/admin/user" method="POST">
-            <input type="text" name="username">
-            <button class="button" type="submit">Add User</button>
+            <div class="form-control">
+                <label for="username">username</label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <button class="btn" type="submit">Add user</button>
         </form>
+        
     </main>
 </body>
 </html>
