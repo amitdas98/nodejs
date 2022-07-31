@@ -54,6 +54,7 @@ main {
 .main-header_nav{
     align-items: center;
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
 }
