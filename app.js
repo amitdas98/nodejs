@@ -19,7 +19,7 @@ app.use(user);
 
 app.use((req , res, next)=>{
     res.statusCode = 404;
-    res.sendFile(path.join(__dirname,'routes','404.html'))
+    res.render('404');
 });
 
 app.listen(3000);

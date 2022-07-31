@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{pageTitle}
+        link(rel="stylesheet", href="/css/style2.css")
+    body
+        header.main-header
+            nav.main-header_nav
+                ul.main-header_list
+                    li.main-header_ItemList
+                        a(href='/') User
+                    li.main-header_ItemList 
+                        a.active(href='/admin/add-user') Userlist
+        main
+            form.userform(action='/admin/add-user', method='POST')
+                .form-control
+                    label(for='username') Please Enter User :
+                    input#username(type='text', name='username')
+                button.button(type='submit') Add user 

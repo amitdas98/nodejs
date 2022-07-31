@@ -1,10 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 * {
     box-sizing: border-box;
   }
+  .form-control {
+    margin: 1rem 0;
+}
 
+.form-control label,
+.form-control input {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+.form-control input {
+    border: 1px solid #a1a1a1;
+    font: inherit;
+    border-radius: 2px;
+}
+
+.form-control input:focus {
+    outline-color: #00695c;
+}
 body {
     padding: 0;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -36,10 +57,13 @@ main {
     display: flex;
     align-items: center;
 }
-
+.main-header_ItemList a {
+    text-decoration: none;
+    color: rgb(26, 148, 201);
+}
 .main-header__ItemList a:hover,
 .main-header__ItemList a:active,
-.main-header__listList a.active {
+.main-header__ItemList a.active {
     color: #1eb42b;
 }
 
@@ -95,7 +119,7 @@ button{
     border: 1px solid #3e00a1;
     color: #3e00a1;
     background: white;
-    border-radius: 3px;
+    border-radius: scale;
     cursor: pointer;
 }
 button:hover,
