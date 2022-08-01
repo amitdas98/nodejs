@@ -1,29 +1,37 @@
 
-const { json } = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const username = [];
 module.exports = class user {
-    constructor(username){
-        this.username=username;
+    constructor(u){
+        this.username=u;
     }
     save(){
-        usernames.push(this);
-        const p = path.join(path.dirname(process.mainModule.filename),
+        username.push(this);
+        const p = path.join(__dirname,'../',
         'data',
         'users.json');
         fs.readFile(p, (err,fileContent)=>{
-            let usernames = []
+            let username = []
             if (!err){
-                usernames = JSON.parse(fileContent);
+                username = JSON.parse(fileContent);
             }
-            usernames.push(this);
-            fs.writeFile(p,JSON.stringify(usernames),(err)=>{
+            username.push(this);
+            fs.writeFile(p,JSON.stringify(username),(err)=>{
                 console.log(err);
-            })
+            });
         });
     }
 
-    static fetchAll(){
-        return usernames;
+    static fetchAll(cb){
+        const p = path.join(__dirname,'../',
+        'data',
+        'users.json');
+        fs.readFile(p,(err,fileContent) =>{
+            if (err){
+                cb([]);
+            }
+            cb(JSON.parse(fileContent));
+        });
     }
 };

@@ -11,12 +11,14 @@ exports.postAddUser=(req ,res ,next )=>{
     console.log(req.body);
     const user = new Username (req.body.username);
     user.save();
-    console.log(usernames);
+    //console.log(usernames);
     res.redirect('/admin/add-user');
 };
 
 exports.getUsers = (req , res, next)=>{ 
     console.log("in another the middleware user.js");
-    //const user = Username.fetchAll();
-    res.render('users',{usrsnms: user, pageTitle: 'Node-js'});
+    Username.fetchAll((user)=>{
+        res.render('users',{usrsnms: user, pageTitle: 'Node-js'});
+    });
+    
 };
