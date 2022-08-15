@@ -1,0 +1,24 @@
+extends ../layout/main-layout.pug
+block content
+    main 
+        h4 STILL UNDER DEV    
+        .grid
+            if usrsnms.length > 0 
+                each users in usrsnms
+                    article.card.user-names
+                        header.card__header
+                            h3 User Name: #{users.username}
+                            h3 User Name: #{users.userID}
+                            h3 Phone Number: #{users.number}
+                            h3 Email: #{users.email}
+                            //img(src='/static/user1.png')
+                        div.card__actions
+                            a(href=`/users/${users.userID}`)
+                                button EDIT
+                            a(href=`/`)
+                                button DELETE
+            else 
+                h1 NO USERS CURRENTLY 
+    
+        
+                        

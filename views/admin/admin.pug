@@ -1,0 +1,13 @@
+extends ../layout/main-layout 
+block content
+    main
+        form.userform(action='/admin/add-user', method='POST')
+            .form-control
+                label(for='username') Please Enter User :
+                input#username(type='text', name='username')
+                label(for='email') Please Enter email :
+                input#email(type='email', name='email')
+                label(for='phoneNumber') Please Enter Phone Number :
+                input#phone(type='number', name='number')
+                
+            button.btn(type='submit') Add user 
