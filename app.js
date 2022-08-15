@@ -2,10 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 const app = express();
 app.set('view engine','pug');
 app.set('views','views');
-
+app.use(express.static('public'));
 
 const admindata = require('./routes/admin');
 const user = require('./routes/user');
