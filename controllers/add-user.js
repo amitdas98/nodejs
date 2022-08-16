@@ -8,9 +8,10 @@ exports.getUser = (req, res, next)=>{
         console.log(user);
         userforalert = user;
     });
+
     // alert(`you clicked on ${userforalert}`);
     //console.log(userID);
-    res.redirect("/");
+    res.render('admin/userDetail');
 };
 
 exports.getEditUser=(req,res,next)=>{
@@ -29,7 +30,7 @@ exports.postAddUser=(req ,res ,next )=>{
     const user = new Username (req.body.username,req.body.number,req.body.email);
     user.save();
     //console.log(user);
-    res.redirect('/admin/add-user');
+    res.redirect('admin/add-user');
 };
 
 exports.getUsers = (req , res, next)=>{ 

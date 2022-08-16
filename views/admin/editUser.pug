@@ -13,9 +13,7 @@ block content
                             h3 Email: #{users.email}
                             //img(src='/static/user1.png')
                         div.card__actions
-                            a(href=`/users/${users.userID}`)
-                                button EDIT
-                            a(href=`/`)
+                            form(action='/admin/edit-user' method='POST')
                                 button DELETE
             else 
                 h1 NO USERS CURRENTLY 
