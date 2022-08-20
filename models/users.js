@@ -19,6 +19,7 @@ const getUsersFromFile = cb => {
       }
     });
   };
+
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -32,8 +33,12 @@ module.exports = class user {
         this.userID = uID;
     }
     save(){
-        this.userID = randomInteger(100,10000).toString();
         getUsersFromFile(users =>{
+            // if (this.userID){
+            //   const currentUser = users.findbyID(user => user.id===this.userID)
+            //   const updatedUser = [...users];
+            // }  
+            this.userID = randomInteger(100,10000).toString();
             users.push(this);
             fs.writeFile(p,JSON.stringify(users),err=>{
                 console.log(err);
@@ -41,6 +46,17 @@ module.exports = class user {
             //console.log(users);
         });
     }
+    static delete(id){
+        getUsersFromFile(users => {
+          console.log(users);
+          const user = users.filter(users => users.userID!==id);
+          console.log(user);
+          fs.writeFile(p,JSON.stringify(user),err=>{
+            console.log(err);
+        });
+        });
+    }
+
 
     static fetchAll(cb){
         getUsersFromFile(cb);

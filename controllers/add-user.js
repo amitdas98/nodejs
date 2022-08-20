@@ -1,4 +1,5 @@
 
+const user = require('../models/users');
 const Username = require('../models/users');
 exports.getUser = (req, res, next)=>{
     const userID = req.params.userID;
@@ -7,11 +8,12 @@ exports.getUser = (req, res, next)=>{
         //console.log(`in controller`);
         console.log(user);
         userforalert = user;
+        res.render('admin/userDetail',{userDetail: user});
     });
 
     // alert(`you clicked on ${userforalert}`);
     //console.log(userID);
-    res.render('admin/userDetail');
+    
 };
 
 exports.getEditUser=(req,res,next)=>{
@@ -30,7 +32,7 @@ exports.postAddUser=(req ,res ,next )=>{
     const user = new Username (req.body.username,req.body.number,req.body.email);
     user.save();
     //console.log(user);
-    res.redirect('admin/add-user');
+    res.redirect('add-user');
 };
 
 exports.getUsers = (req , res, next)=>{ 
@@ -40,5 +42,14 @@ exports.getUsers = (req , res, next)=>{
     });
     
 };
+
+exports.getDeleteUser = (req,res,next)=>{
+    const userID = req.params.userID;
+    //user.delete(userID);
+    Username.delete(userID);
+    Username.fetchAll((user)=>{
+        res.render('admin/users',{usrsnms: user, pageTitle: 'Node-js'});
+    });   
+}
 
 
