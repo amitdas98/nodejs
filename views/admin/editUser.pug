@@ -13,8 +13,10 @@ block content
                             h3 Email: #{users.email}
                             //img(src='/static/user1.png')
                         div.card__actions
-                            a(href=`/admin/delete-user/${users.userID}`)
-                                button DELETE
+                            button(href=`/admin/edit-user/${users.userID}`, method='POST')  EDIT 
+                            a(href=`/admin/delete-user/${users.userID}` method='POST')
+                                button DELETE   
+                                
             else 
                 h1 NO USERS CURRENTLY 
     

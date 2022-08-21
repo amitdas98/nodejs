@@ -21,6 +21,12 @@ exports.getEditUser=(req,res,next)=>{
         res.render('admin/editUser',{usrsnms: user, pageTitle: 'EDIT'});
     });
 }
+exports.getEditUserByID=(req,res,next)=>{
+    console.log(req.params.userID);
+    Username.fetchAll((user)=>{
+        res.render('admin/editUserByID',{usrsnms: user, pageTitle: 'EDIT'});
+    });
+}
 exports.getAddUser=(req , res, next)=>{ 
     //res.sendFile(path.join(rootDir,'views','admin.html'))
     res.render('admin/admin',{pageTitle: "ADMIN PORTAL"})
